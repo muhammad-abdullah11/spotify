@@ -1,6 +1,8 @@
 import React from 'react'
 import songs from "../../assets/songs.json"
+import popularArtists from "../../assets/popularArtists.json"
 import { useNavigate } from 'react-router-dom'
+import { FaPlay } from 'react-icons/fa'
 
 const HomePage = () => {
     const navigate = useNavigate()
@@ -16,6 +18,19 @@ const HomePage = () => {
                             <p className='font-bold font-sans'>{song.title}</p>
                             <p className='text-sm text-gray-600 font-sans'>{song.artist.name}</p>
                             <button className='absolute bottom-2 right-2 bg-green-500 text-white px-2 py-0.5 rounded-lg'>Play</button>
+                        </div>
+                    ))}
+                </div>
+            </section>
+            <section className='border-b border-b-gray-500'>
+                <h2 className='text-xl font-bold font-sans'>Popular Artists</h2>
+                <div className="flex flex-wrap gap-4 py-4">
+                    {popularArtists.map((artist, index) => (
+                        <div onClick={() => navigate(`/artist/${artist.id}`)} key={artist.id} className="artist bg-gray-300 p-4 rounded-lg relative">
+                            <img className='w-32 h-32 object-cover rounded-full' src={artist.profilePic} alt={artist.name} />
+                            <p className='font-bold font-sans'>{artist.name}</p>
+                            <p className='text-sm text-gray-600 font-sans'>Artist</p>
+                            <button className='absolute top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 bg-green-500 text-white p-3 rounded-full'><FaPlay /></button>
                         </div>
                     ))}
                 </div>

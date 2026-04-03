@@ -1,0 +1,174 @@
+[
+    {
+        "id": 1,
+        "name": "Artist 1",
+        "profilePic": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "monthlyListeners": "1000000",
+        "popularSongs": [
+            {
+                "id": 1,
+                "name": "Song 1",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 2,
+                "name": "Song 2",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 3,
+                "name": "Song 3",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 4,
+                "name": "Song 4",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 5,
+                "name": "Song 5",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Artist 2",
+        "profilePic": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "monthlyListeners": "1000000",
+        "popularSongs": [
+            {
+                "id": 1,
+                "name": "Song 1",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 2,
+                "name": "Song 2",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 3,
+                "name": "Song 3",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 4,
+                "name": "Song 4",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 5,
+                "name": "Song 5",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Artist 3",
+        "profilePic": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "monthlyListeners": "1000000",
+        "popularSongs": [
+            {
+                "id": 1,
+                "name": "Song 1",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 2,
+                "name": "Song 2",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 3,
+                "name": "Song 3",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 4,
+                "name": "Song 4",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 5,
+                "name": "Song 5",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Artist 4",
+        "profilePic": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "monthlyListeners": "1000000",
+        "popularSongs": [
+            {
+                "id": 1,
+                "name": "Song 1",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 2,
+                "name": "Song 2",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 3,
+                "name": "Song 3",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 4,
+                "name": "Song 4",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            },
+            {
+                "id": 5,
+                "name": "Song 5",
+                "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                "duration": "3:00",
+                "tottalPlays": "1000000"
+            }
+        ]
+    }
+]
