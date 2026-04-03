@@ -6,7 +6,6 @@ const SongBar = () => {
     const { currentSong, isPlaying, setIsPlaying } = useContext(SongContext);
     const [curr, setCurr] = useState(0);
     const audio = useRef(null);
-    const proxy = "https://corsproxy.io/?";
 
     const toggle = () => {
         if (!audio.current) return;
@@ -16,8 +15,7 @@ const SongBar = () => {
     };
 
     useEffect(() => {
-        if (!audio.current) return;
-        if (isPlaying) audio.current.play().catch(() => setIsPlaying(false));
+        if (audio.current && isPlaying) audio.current.play().catch(() => setIsPlaying(false));
     }, [currentSong?.id]);
 
     if (!currentSong) return null;
@@ -30,7 +28,7 @@ const SongBar = () => {
 
     return (
         <div className='fixed bottom-0 left-0 right-0 h-[90px] bg-white border-t px-4 flex items-center justify-between'>
-            <audio key={currentSong.id} ref={audio} src={`${proxy}${encodeURIComponent(currentSong.preview)}`} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} autoPlay={isPlaying} />
+            <audio key={currentSong.id} ref={audio} src={currentSong.preview} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} autoPlay={isPlaying} />
             <div className='flex items-center gap-4 w-[30%]'>
                 <img src={currentSong.image} className="w-14 h-14 rounded shadow-sm" />
                 <div className="overflow-hidden">
