@@ -1,13 +1,25 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { SongContext } from './Contexts/SongContext';
 import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaVolumeUp } from 'react-icons/fa';
 
 const SongBar = () => {
     const { currentSong, isPlaying, setIsPlaying } = useContext(SongContext);
+    const [curr, setCurr] = useState(0);
+    const audio = useRef(null);
+
+    useEffect(() => {
+        if (!audio.current) return;
+        isPlaying ? audio.current.play() : audio.current.pause();
+    }, [isPlaying, currentSong]);
+
     if (!currentSong) return null;
+
+    const onTime = () => setCurr((audio.current.currentTime / audio.current.duration) * 100);
+    const format = (s) => `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
 
     return (
         <div className='fixed bottom-0 left-0 right-0 h-[90px] bg-white border-t px-4 flex items-center justify-between'>
+            <audio ref={audio} src={currentSong.preview} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} />
             <div className='flex items-center gap-4 w-[30%]'>
                 <img src={currentSong.image} className="w-14 h-14 rounded shadow-sm" />
                 <div className="overflow-hidden">
@@ -24,9 +36,9 @@ const SongBar = () => {
                     <FaStepForward className="text-gray-400 hover:text-black cursor-pointer text-lg" />
                 </div>
                 <div className='flex items-center gap-2 w-full'>
-                    <span className='text-[10px] text-gray-500'>0:00</span>
+                    <span className='text-[10px] text-gray-500'>{audio.current ? format(audio.current.currentTime) : '0:00'}</span>
                     <div className='flex-1 h-1 bg-gray-200 rounded-full relative group cursor-pointer'>
-                        <div className='absolute h-full w-[30%] bg-black group-hover:bg-green-500 rounded-full' />
+                        <div className='absolute h-full bg-black group-hover:bg-green-500 rounded-full' style={{ width: `${curr}%` }} />
                     </div>
                     <span className='text-[10px] text-gray-500'>{currentSong.duration}</span>
                 </div>
