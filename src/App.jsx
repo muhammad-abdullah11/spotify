@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, HomePage, Search, Footer, Song, Artist } from './components'
+import { Header, HomePage, Search, Footer, Song, Artist, Login } from './components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -12,6 +12,7 @@ const App = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/song/:id" element={<Song />} />
           <Route path="/artist/:id" element={<Artist />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </main>
