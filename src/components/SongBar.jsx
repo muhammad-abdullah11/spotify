@@ -6,29 +6,31 @@ const SongBar = () => {
     const { currentSong, isPlaying, setIsPlaying } = useContext(SongContext);
     const [curr, setCurr] = useState(0);
     const audio = useRef(null);
+    const proxy = "https://corsproxy.io/?";
+
+    const toggle = () => {
+        if (!audio.current) return;
+        if (isPlaying) audio.current.pause();
+        else audio.current.play().catch(e => console.error(e));
+        setIsPlaying(!isPlaying);
+    };
 
     useEffect(() => {
         if (!audio.current) return;
-        if (isPlaying) {
-            audio.current.play().catch(() => setIsPlaying(false));
-        } else {
-            audio.current.pause();
-        }
-    }, [isPlaying, currentSong?.id]);
+        if (isPlaying) audio.current.play().catch(() => setIsPlaying(false));
+    }, [currentSong?.id]);
 
     if (!currentSong) return null;
 
     const onTime = () => {
-        if (audio.current?.duration) {
-            setCurr((audio.current.currentTime / audio.current.duration) * 100);
-        }
+        if (audio.current?.duration) setCurr((audio.current.currentTime / audio.current.duration) * 100);
     };
 
-    const format = (s) => `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
+    const format = (s) => !s ? '0:00' : `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
 
     return (
         <div className='fixed bottom-0 left-0 right-0 h-[90px] bg-white border-t px-4 flex items-center justify-between'>
-            <audio key={currentSong.id} ref={audio} src={currentSong.preview} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} autoPlay={isPlaying} />
+            <audio key={currentSong.id} ref={audio} src={`${proxy}${encodeURIComponent(currentSong.preview)}`} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} autoPlay={isPlaying} />
             <div className='flex items-center gap-4 w-[30%]'>
                 <img src={currentSong.image} className="w-14 h-14 rounded shadow-sm" />
                 <div className="overflow-hidden">
@@ -39,7 +41,7 @@ const SongBar = () => {
             <div className='flex flex-col items-center gap-2 w-[40%]'>
                 <div className='flex items-center gap-6'>
                     <FaStepBackward className="text-gray-400 hover:text-black cursor-pointer text-lg" />
-                    <button onClick={() => setIsPlaying(!isPlaying)} className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white hover:scale-105 transition-all">
+                    <button onClick={toggle} className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white hover:scale-105 transition-all">
                         {isPlaying ? <FaPause size={14} /> : <FaPlay size={14} className="ml-1" />}
                     </button>
                     <FaStepForward className="text-gray-400 hover:text-black cursor-pointer text-lg" />
@@ -59,7 +61,7 @@ const SongBar = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default SongBar;
