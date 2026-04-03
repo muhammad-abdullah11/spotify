@@ -1,14 +1,12 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { SongContext } from './Contexts/SongContext';
 import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaVolumeUp } from 'react-icons/fa';
-import axios from 'axios';
+import testAudio from '../assets/testAudio.wav';
 
 const SongBar = () => {
-    const { currentSong, isPlaying, setIsPlaying, setCurrentSong } = useContext(SongContext);
+    const { currentSong, isPlaying, setIsPlaying } = useContext(SongContext);
     const [curr, setCurr] = useState(0);
-    const [stream, setStream] = useState(null);
     const audio = useRef(null);
-    const proxy = "https://corsproxy.io/?";
 
     const toggle = () => {
         if (!audio.current) return;
@@ -18,15 +16,10 @@ const SongBar = () => {
     };
 
     useEffect(() => {
-        if (!currentSong?.id) return;
-        axios.get(`${proxy}${encodeURIComponent(`https://api.deezer.com/track/${currentSong.id}`)}`)
-            .then(res => setStream(res.data.preview))
-            .catch(err => console.error(err));
-    }, [currentSong?.id]);
-
-    useEffect(() => {
-        if (audio.current && isPlaying && stream) audio.current.play().catch(() => setIsPlaying(false));
-    }, [stream, isPlaying]);
+        if (audio.current && isPlaying) {
+            audio.current.play().catch(() => setIsPlaying(false));
+        }
+    }, [isPlaying]);
 
     if (!currentSong) return null;
 
@@ -35,7 +28,7 @@ const SongBar = () => {
 
     return (
         <div className='fixed bottom-0 left-0 right-0 h-[90px] bg-white border-t px-4 flex items-center justify-between z-[100] shadow-[0_-1px_10px_rgba(0,0,0,0.1)]'>
-            {stream && <audio key={currentSong.id} ref={audio} src={`${proxy}${encodeURIComponent(stream)}`} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} autoPlay={isPlaying} />}
+            <audio key={currentSong.id} ref={audio} src={testAudio} onTimeUpdate={onTime} onEnded={() => setIsPlaying(false)} autoPlay={isPlaying} />
             <div className='flex items-center gap-4 w-[30%]'>
                 <img src={currentSong.image} className="w-14 h-14 rounded shadow-sm object-cover" />
                 <div className="overflow-hidden">
@@ -69,4 +62,4 @@ const SongBar = () => {
     );
 };
 
-export default SongBar;
+export default SongBar;
