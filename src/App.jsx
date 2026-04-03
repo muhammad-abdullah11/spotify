@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, HomePage, Search } from './components'
+import { Header, HomePage, Search, Footer } from './components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -11,6 +11,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/search" element={<Search />} />
         </Routes>
+        <Footer />
       </main>
     </Router>
   )
