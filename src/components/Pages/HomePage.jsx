@@ -1,7 +1,9 @@
 import React from 'react'
 import songs from "../../assets/songs.json"
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
+    const navigate = useNavigate()
     return (
         <main className='px-4 py-2'>
             <section className='border-b border-b-gray-500'>
@@ -9,7 +11,7 @@ const HomePage = () => {
                 <h2 className='text-xl font-bold font-sans'>Trending now</h2>
                 <div className="flex flex-wrap gap-4 py-4">
                     {songs.map((song, index) => (
-                        <div key={song.id} className="song bg-gray-300 p-4 rounded-lg relative">
+                        <div onClick={() => navigate(`/song/${song.id}`)} key={song.id} className="song bg-gray-300 p-4 rounded-lg relative">
                             <img className='w-32 h-32 object-cover' src={song.image} alt={song.title} />
                             <p className='font-bold font-sans'>{song.title}</p>
                             <p className='text-sm text-gray-600 font-sans'>{song.artist.name}</p>
