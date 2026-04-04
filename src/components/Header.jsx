@@ -1,18 +1,17 @@
 import { useState } from "react";
-import { FaHome, FaSearch, FaSpotify, FaBars, FaTimes } from "react-icons/fa";
+import { FaHome, FaSearch, FaSpotify, FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, SignOutButton, useUser } from "@clerk/clerk-react";
 
 const links = [
   { name: "Premium", path: "#" },
-  { name: "Help", path: "#" },
-  { name: "Download", path: "#" },
-  { name: "Sign up", path: "#" },
-  { name: "Log in", path: "#" }
+  { name: "Help", path: "#" }
 ];
 
 const Header = () => {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useUser();
 
     return (
         <header className="px-4 md:px-6 py-3 flex justify-between items-center bg-white border-b sticky top-0 z-[100] shadow-sm">
@@ -37,6 +36,23 @@ const Header = () => {
                     {links.map(n => (
                         <Link key={n.name} to={n.path} className="text-sm font-bold text-gray-600 hover:text-black transition-all">{n.name}</Link>
                     ))}
+                    <SignedOut>
+                        <SignUpButton mode="modal">
+                            <button className="text-sm font-bold text-gray-500 hover:text-black hover:scale-105 transition-all">Sign up</button>
+                        </SignUpButton>
+                        <SignInButton mode="modal">
+                            <button className="text-sm font-bold bg-black text-white px-6 py-3 rounded-full hover:scale-105 transition-all">Log in</button>
+                        </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                        <span className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-bold hover:scale-105 transition-all cursor-default">
+                            <FaUserCircle className="text-xl" />
+                            {user?.firstName || user?.username || "User"}
+                        </span>
+                        <SignOutButton>
+                            <button className="text-sm font-bold bg-gray-100 hover:bg-gray-200 text-black px-6 py-3 rounded-full transition-all hover:scale-105">Log out</button>
+                        </SignOutButton>
+                    </SignedIn>
                 </div>
                 
                 <button 
@@ -76,6 +92,23 @@ const Header = () => {
                             {n.name}
                         </Link>
                     ))}
+                    <SignedOut>
+                        <SignUpButton mode="modal">
+                            <button onClick={() => setIsOpen(false)} className="text-lg font-bold text-left text-gray-500 hover:text-black transition-all px-4 py-2">Sign up</button>
+                        </SignUpButton>
+                        <SignInButton mode="modal">
+                            <button onClick={() => setIsOpen(false)} className="text-lg font-bold bg-black text-white px-8 py-3 rounded-full hover:scale-105 transition-all ml-4 self-start">Log in</button>
+                        </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                        <span className="flex items-center gap-2 text-lg font-bold text-white bg-black px-6 py-3 rounded-full self-start ml-4 w-max cursor-default">
+                            <FaUserCircle className="text-2xl" />
+                            {user?.firstName || user?.username || "User"}
+                        </span>
+                        <SignOutButton>
+                            <button onClick={() => setIsOpen(false)} className="text-lg font-bold bg-gray-100 hover:bg-gray-200 text-black px-8 py-3 rounded-full transition-all ml-4 self-start mt-2">Log out</button>
+                        </SignOutButton>
+                    </SignedIn>
                 </div>
             )}
         </header>
